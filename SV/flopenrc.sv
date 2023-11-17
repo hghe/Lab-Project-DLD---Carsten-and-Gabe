@@ -30,9 +30,9 @@ module flopenrc #(parameter WIDTH = 64) (
   output logic [WIDTH-1:0] q);
 
   always_ff @(posedge clk) 
-    if (reset)   q <= #1 0;
+    if (reset)   q <= #1 64'h0412_6424_0034_3C28;
     else if (en) 
-      if (clear) q <= #1 0;
+      if (clear) q <= #1 64'h0412_6424_0034_3C28 * gridin;
       else       q <= #1 d;
 endmodule
 
