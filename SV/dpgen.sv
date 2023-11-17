@@ -1,14 +1,17 @@
 module dpgen(
-    input logic [63:0] gin, seed
+    input logic [63:0] seed,
     input logic reset, clear, clk, start,
     output logic [63:0] gout
 );
 
 logic en;
-//logic [63:0] w1, w2;
+logic [63:0] w1, w2;
+assign w1 = reset ? seed : gout;
 
-flopenrc flop (clk, reset, clear, en, gout, gin);
-datapath dp(w1, w2);
+flopenrc flop (clk, reset, clear, en, w1, w2);
+datapath dp(w2, gout);
+
+
 
 typedef enum 	logic [3:0] {S0, S1, S2, S3} statetype;
    statetype state, nextstate;
@@ -21,7 +24,6 @@ typedef enum 	logic [3:0] {S0, S1, S2, S3} statetype;
 always_comb
      case (state)
        S0: begin
-	     gout = seed;
           en = 1;
           //once we hit posedge clock the flipflop will send the seed to the datapath then gin will be updated after ??? nanoseconds.
           if(start) 
@@ -30,7 +32,6 @@ always_comb
                nextstate <= S0;
        end
        S1: begin
-          gout = gin;
           en = 1;
           if(start)
                nextstate <= S1;
@@ -48,11 +49,3 @@ always_comb
  
 
 endmodule
-
-
-module FSM(
-
-
-
-
-) endmodule;

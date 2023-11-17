@@ -24,11 +24,11 @@
 // and limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////////////////////
 `timescale 1ns / 1ps
-module flop #(parameter WIDTH = 8) ( 
+module flop #(parameter WIDTH = 64) ( 
   input  logic             clk,
   input  logic [WIDTH-1:0] d, 
   output logic [WIDTH-1:0] q);
-
+  
   always_ff @(posedge clk)
     q <= #1 d;
 endmodule

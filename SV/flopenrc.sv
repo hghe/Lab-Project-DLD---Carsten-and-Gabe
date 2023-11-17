@@ -23,7 +23,7 @@
 // either express or implied. See the License for the specific language governing permissions 
 // and limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////////////////////
-
+`timescale 1ns / 1ps
 module flopenrc #(parameter WIDTH = 64) (
   input  logic             clk, reset, clear, en,
   input  logic [WIDTH-1:0] d, 
@@ -32,7 +32,7 @@ module flopenrc #(parameter WIDTH = 64) (
   always_ff @(posedge clk) 
     if (reset)   q <= #1 64'h0412_6424_0034_3C28;
     else if (en) 
-      if (clear) q <= #1 64'h0412_6424_0034_3C28 * gridin;
+      if (clear) q <= #1 64'h0412_6424_0034_3C28 ^ d;
       else       q <= #1 d;
 endmodule
 

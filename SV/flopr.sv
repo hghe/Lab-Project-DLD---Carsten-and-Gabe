@@ -25,13 +25,13 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 `timescale 1ns / 1ps
-module flopr #(parameter WIDTH = 8) ( 
+module flopr #(parameter WIDTH = 64) ( 
   input  logic             clk, reset,
   input  logic [WIDTH-1:0] d, 
   output logic [WIDTH-1:0] q);
 
   always_ff @(posedge clk)
-    if (reset) q <= #1 0;
+    if (reset) q <= #1 64'h0412_6424_0034_3C28;
     else       q <= #1 d;
 endmodule
 
