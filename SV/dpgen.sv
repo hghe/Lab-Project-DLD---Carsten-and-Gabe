@@ -1,11 +1,11 @@
 module dpgen(
-    input logic [63:0] seed,
+    input logic [255:0] seed,
     input logic reset, clear, clk, start,
-    output logic [63:0] gout
+    output logic [255:0] gout
 );
 
 logic en;
-logic [63:0] w1, w2;
+logic [255:0] w1, w2;
 assign w1 = reset ? seed : gout;
 
 flopenrc flop (clk, reset, clear, en, w1, w2);

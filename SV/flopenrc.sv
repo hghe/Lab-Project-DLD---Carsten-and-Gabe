@@ -24,15 +24,15 @@
 // and limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////////////////////
 `timescale 1ns / 1ps
-module flopenrc #(parameter WIDTH = 64) (
+module flopenrc #(parameter WIDTH = 256) (
   input  logic             clk, reset, clear, en,
   input  logic [WIDTH-1:0] d, 
   output logic [WIDTH-1:0] q);
 
   always_ff @(posedge clk) 
-    if (reset)   q <= #1 64'h0412_6424_0034_3C28;
+    if (reset)   q <= #1 256'h0412_6424_0034_3C28_0412_6424_0034_3C28_0412_6424_0034_3C28_0412_6424_0034_3C28;
     else if (en) 
-      if (clear) q <= #1 64'h0412_6424_0034_3C28 ^ d;
+      if (clear) q <= #1 256'h0412_6424_0034_3C28_0412_6424_0034_3C28_0412_6424_0034_3C28_0412_6424_0034_3C28 ^ d;
       else       q <= #1 d;
 endmodule
 
