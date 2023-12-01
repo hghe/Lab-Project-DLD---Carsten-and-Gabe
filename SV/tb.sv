@@ -38,7 +38,8 @@ module stimulus ();
    initial 
      begin      
      #0   reset = 1'b1;
-     #6  reset = 1'b0;
+     #0   gin = 64'h0412_6424_0034_3C28;
+     #40  reset = 1'b0;
      #0    start = 1'b1;
     
      end

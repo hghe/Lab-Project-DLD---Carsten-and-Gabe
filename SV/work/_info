@@ -11,10 +11,10 @@ z2
 cModel Technology
 Z0 dC:/Users/gabcorn/Desktop/Lab-Project-DLD---Carsten-and-Gabe/SV
 T_opt
-Z1 !s110 1700262931
-VchaZSl;_4YTC_8;nU[X1]2
+Z1 !s110 1701467573
+VR[Wz=6h=24KleAED^ddnJ2
 04 8 4 work stimulus fast 0
-=1-00be43904ff0-6557f413-105-5cb0
+=1-00be43902c23-656a55b5-29d-a90
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc
 Z2 tCvgOpt 0
@@ -28,7 +28,7 @@ R1
 I<ahlD=61ndBBilL@NE8dL1
 S1
 R0
-Z4 w1700256920
+Z4 w1701466577
 Z5 8datapath.sv
 Z6 Fdatapath.sv
 !i122 0
@@ -38,9 +38,9 @@ Z8 OL;L;2021.3;73
 r1
 !s85 0
 31
-Z9 !s108 1700262931.000000
+Z9 !s108 1701467573.000000
 Z10 !s107 flopenrc.sv|tb.sv|datapath.sv|dpgen.sv|
-Z11 !s90 dpgen.sv|datapath.sv|tb.sv|flopenrc.sv|
+Z11 !s90 -reportprogress|300|dpgen.sv|datapath.sv|tb.sv|flopenrc.sv|
 !i113 0
 Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R2
@@ -52,7 +52,7 @@ R1
 IPzRSC9VG9Vhgn^nID4H@42
 S1
 R0
-w1700262529
+R4
 8dpgen.sv
 Fdpgen.sv
 !i122 0
@@ -148,7 +148,7 @@ R1
 IKCLXE@83iZDzJ4DRN`J330
 S1
 R0
-w1700261734
+R4
 8flopenrc.sv
 Fflopenrc.sv
 !i122 0
@@ -192,15 +192,15 @@ vstimulus
 R3
 R1
 !i10b 1
-!s100 ejVZz<WYoSUXF7G[b<Fmh3
-IX=AcEREhG;K4JZ`UQ:6A51
+!s100 oTN^gDXI=I@;la`mIa8KA0
+IDM4RHASKel8A1fjILWK;M0
 S1
 R0
-w1700262924
+w1701467558
 8tb.sv
 Ftb.sv
 !i122 0
-L0 2 45
+L0 2 46
 R7
 R8
 r1
