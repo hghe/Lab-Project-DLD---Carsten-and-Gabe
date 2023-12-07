@@ -11,24 +11,24 @@ z2
 cModel Technology
 Z0 dC:/Users/gabcorn/Desktop/Lab-Project-DLD---Carsten-and-Gabe/SV
 T_opt
-Z1 !s110 1701473096
-V9[4nDeea9`6a0K5jac_`;2
+!s110 1701981979
+VJUJPaL79`D:;=PRg3WE?d3
 04 8 4 work stimulus fast 0
-=1-00be43902c23-656a6b48-1a0-680
+=1-00be43904ff0-65722f1b-b2-6484
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc
-Z2 tCvgOpt 0
+Z1 tCvgOpt 0
 n@_opt
 OL;O;2021.3;73
 vdatapath
-Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-R1
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z3 !s110 1701981978
 !i10b 1
 !s100 2e1HT^`C_I`7lO_TSPQ[R3
 I>JC[]Jz@z5?0_;OmK1<K42
 S1
 R0
-Z4 w1701472186
+Z4 w1701977664
 Z5 8datapath2.sv
 Z6 Fdatapath2.sv
 !i122 0
@@ -38,21 +38,21 @@ Z8 OL;L;2021.3;73
 r1
 !s85 0
 31
-Z9 !s108 1701473096.000000
+Z9 !s108 1701981978.000000
 Z10 !s107 flopenrc.sv|tb.sv|datapath2.sv|dpgen.sv|
-Z11 !s90 -reportprogress|300|dpgen.sv|datapath2.sv|tb.sv|flopenrc.sv|
+Z11 !s90 dpgen.sv|datapath2.sv|tb.sv|flopenrc.sv|
 !i113 0
 Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R2
-vdpgen
-R3
 R1
+vdpgen
+R2
+R3
 !i10b 1
 !s100 f@6e5cck6=AFmAVIMM[2V3
 IC4b>mX<`[Kj?mo;1;FZ]01
 S1
 R0
-w1701472245
+R4
 8dpgen.sv
 Fdpgen.sv
 !i122 0
@@ -67,10 +67,10 @@ R10
 R11
 !i113 0
 R12
-R2
-vevolve3
-R3
 R1
+vevolve3
+R2
+R3
 !i10b 1
 !s100 TN8Y4_DMzd_QJDki?>lg30
 InXDTFLBUaNQ[cB@30PZOd2
@@ -91,10 +91,10 @@ R10
 R11
 !i113 0
 R12
-R2
-vevolve5
-R3
 R1
+vevolve5
+R2
+R3
 !i10b 1
 !s100 71;Iz7J;9^>I?hilKg1bg2
 I7J4dz6B4`]U19Za8i8V^X0
@@ -115,10 +115,10 @@ R10
 R11
 !i113 0
 R12
-R2
-vevolve8
-R3
 R1
+vevolve8
+R2
+R3
 !i10b 1
 !s100 V=g`:cC@R[;>;Bj1;VN>d3
 I7ML6Qo<N2]i<MCTloT;RV3
@@ -139,20 +139,20 @@ R10
 R11
 !i113 0
 R12
-R2
-vflopenrc
-R3
 R1
+vflopenrc
+R2
+R3
 !i10b 1
-!s100 WFMM>V15cMYO1A@2`L<o]3
-I^E9UFULOo8@GJeQXY8:`b1
+!s100 LZc;]h63S<=35S9oO_QjV2
+Ie^;;2l1j1f4P8Ac_MXGiE1
 S1
 R0
-w1701472706
+w1701981974
 8flopenrc.sv
 Fflopenrc.sv
 !i122 0
-L0 27 11
+L0 27 12
 R7
 R8
 r1
@@ -163,10 +163,10 @@ R10
 R11
 !i113 0
 R12
-R2
-vrules
-R3
 R1
+vrules
+R2
+R3
 !i10b 1
 !s100 KAEaZod_a[?fKP8XbiJRe1
 Ih>>_]_X?jVPUJN6jNP1U63
@@ -187,20 +187,20 @@ R10
 R11
 !i113 0
 R12
-R2
-vstimulus
-R3
 R1
+vstimulus
+R2
+R3
 !i10b 1
-!s100 78MBi5:jg2T:hUgZa;FiE1
-I`UK<MW`Zl@c2cj?3Ne=L83
+!s100 h_dF;KMGOk<]ShzXYgIH:0
+IEIe3E[NVa2lhXU87=zDI81
 S1
 R0
-w1701472500
+w1701981956
 8tb.sv
 Ftb.sv
 !i122 0
-L0 2 46
+L0 2 49
 R7
 R8
 r1
@@ -211,4 +211,4 @@ R10
 R11
 !i113 0
 R12
-R2
+R1

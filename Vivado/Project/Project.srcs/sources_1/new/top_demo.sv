@@ -53,9 +53,19 @@ module top_demo
   logic [16:0] CURRENT_COUNT;
   logic [16:0] NEXT_COUNT;
   logic        smol_clk;
-   
+  logic game_clk;
+  logic [255:0] n2;
+  logic [255:0] seed ;
+  logic reset, clear, start;
+  
+  clk_div c1(sysclk_125mhz, reset,  game_clk);
+  
+  assign reset = sw[0];
+  assign clear = sw[1];
+  assign start = sw[2];
+  assign seed = 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
   // Place Conway Game of Life instantiation here
- 
+  dpgen dp(seed, reset, clear, game_clk, start, n2);
   // HDMI
   // logic hdmi_out_en;
   //assign hdmi_out_en = 1'b0;
