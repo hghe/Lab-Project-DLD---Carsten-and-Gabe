@@ -12,7 +12,7 @@ module dpgen(
 
   logic [255:0] w1, w2;
 
-  assign w1 = start? seed : w2;
+  assign w1 = start ? seed : w2;
 
 
   flopenrc flop (clk, reset, clear, en, w1, gout, w2);

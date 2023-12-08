@@ -1,5 +1,5 @@
 module hdmi_top (n2,CLK_125MHZ, HDMI_TX, HDMI_TX_N, HDMI_CLK, 
-		 HDMI_CLK_N, HDMI_CEC, HDMI_SDA, HDMI_SCL, HDMI_HPD);
+		 HDMI_CLK_N, HDMI_CEC, HDMI_SDA, HDMI_SCL, HDMI_HPD, colChoice);
 		 
    input  logic [255:0] n2;
    input logic         CLK_125MHZ;   
@@ -19,6 +19,7 @@ module hdmi_top (n2,CLK_125MHZ, HDMI_TX, HDMI_TX_N, HDMI_CLK,
    logic 	           clk_pixel;
    logic 	           clk_audio;
    logic [23:0] 	      DataIn; // RGB Data to HDMI
+   input logic colChoice;
    
    hdmi_pll_xilinx hdmi_pll (.clk_in1(CLK_125MHZ), .clk_out1(clk_pixel), .clk_out2(clk_pixel_x5));
    
@@ -91,8 +92,9 @@ module hdmi_top (n2,CLK_125MHZ, HDMI_TX, HDMI_TX_N, HDMI_CLK,
    
    // Color Choice
    logic [23:0] alive, dead;
-   assign alive = {8'hFF, 8'hFF, 8'h00};
-   assign dead  = {8'h00, 8'h00, 8'hFF};
+   
+   assign alive = colChoice ? {8'hF5, 8'hF8, 8'hE3}:{8'hFF, 8'hFF, 8'h00};
+   assign dead  = colChoice ? {8'hFF, 8'h00, 8'hFF}:{8'h00, 8'h00, 8'hFF};
 
    always @(posedge CLK_125MHZ)
      begin	

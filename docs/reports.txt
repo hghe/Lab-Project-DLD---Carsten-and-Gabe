@@ -1,0 +1,449 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
+| Date         : Fri Dec  8 16:31:39 2023
+| Host         : CEAT-ENDV350-03 running 64-bit major release  (build 9200)
+| Command      : report_utilization -file route_report_utilization_0.rpt -pb route_report_utilization_0.pb
+| Design       : top_demo
+| Device       : xc7z020clg484-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Slice Logic
+1.1 Summary of Registers by Type
+2. Slice Logic Distribution
+3. Memory
+4. DSP
+5. IO and GT Specific
+6. Clocking
+7. Specific Feature
+8. Primitives
+9. Black Boxes
+10. Instantiated Netlists
+
+1. Slice Logic
+--------------
+
++-------------------------+------+-------+------------+-----------+-------+
+|        Site Type        | Used | Fixed | Prohibited | Available | Util% |
++-------------------------+------+-------+------------+-----------+-------+
+| Slice LUTs              | 2331 |     0 |          0 |     53200 |  4.38 |
+|   LUT as Logic          | 2331 |     0 |          0 |     53200 |  4.38 |
+|   LUT as Memory         |    0 |     0 |          0 |     17400 |  0.00 |
+| Slice Registers         |  529 |     0 |          0 |    106400 |  0.50 |
+|   Register as Flip Flop |  529 |     0 |          0 |    106400 |  0.50 |
+|   Register as Latch     |    0 |     0 |          0 |    106400 |  0.00 |
+| F7 Muxes                |  203 |     0 |          0 |     26600 |  0.76 |
+| F8 Muxes                |   17 |     0 |          0 |     13300 |  0.13 |
++-------------------------+------+-------+------------+-----------+-------+
+* Warning! LUT value is adjusted to account for LUT combining.
+
+
+1.1 Summary of Registers by Type
+--------------------------------
+
++-------+--------------+-------------+--------------+
+| Total | Clock Enable | Synchronous | Asynchronous |
++-------+--------------+-------------+--------------+
+| 0     |            _ |           - |            - |
+| 0     |            _ |           - |          Set |
+| 0     |            _ |           - |        Reset |
+| 0     |            _ |         Set |            - |
+| 0     |            _ |       Reset |            - |
+| 0     |          Yes |           - |            - |
+| 17    |          Yes |           - |          Set |
+| 244   |          Yes |           - |        Reset |
+| 5     |          Yes |         Set |            - |
+| 263   |          Yes |       Reset |            - |
++-------+--------------+-------------+--------------+
+
+
+2. Slice Logic Distribution
+---------------------------
+
++--------------------------------------------+------+-------+------------+-----------+-------+
+|                  Site Type                 | Used | Fixed | Prohibited | Available | Util% |
++--------------------------------------------+------+-------+------------+-----------+-------+
+| Slice                                      |  701 |     0 |          0 |     13300 |  5.27 |
+|   SLICEL                                   |  423 |     0 |            |           |       |
+|   SLICEM                                   |  278 |     0 |            |           |       |
+| LUT as Logic                               | 2331 |     0 |          0 |     53200 |  4.38 |
+|   using O5 output only                     |    0 |       |            |           |       |
+|   using O6 output only                     | 1884 |       |            |           |       |
+|   using O5 and O6                          |  447 |       |            |           |       |
+| LUT as Memory                              |    0 |     0 |          0 |     17400 |  0.00 |
+|   LUT as Distributed RAM                   |    0 |     0 |            |           |       |
+|   LUT as Shift Register                    |    0 |     0 |            |           |       |
+| Slice Registers                            |  529 |     0 |          0 |    106400 |  0.50 |
+|   Register driven from within the Slice    |  498 |       |            |           |       |
+|   Register driven from outside the Slice   |   31 |       |            |           |       |
+|     LUT in front of the register is unused |   18 |       |            |           |       |
+|     LUT in front of the register is used   |   13 |       |            |           |       |
+| Unique Control Sets                        |   20 |       |          0 |     13300 |  0.15 |
++--------------------------------------------+------+-------+------------+-----------+-------+
+* * Note: Available Control Sets calculated as Slice * 1, Review the Control Sets Report for more information regarding control sets.
+
+
+3. Memory
+---------
+
++----------------+------+-------+------------+-----------+-------+
+|    Site Type   | Used | Fixed | Prohibited | Available | Util% |
++----------------+------+-------+------------+-----------+-------+
+| Block RAM Tile |    0 |     0 |          0 |       140 |  0.00 |
+|   RAMB36/FIFO* |    0 |     0 |          0 |       140 |  0.00 |
+|   RAMB18       |    0 |     0 |          0 |       280 |  0.00 |
++----------------+------+-------+------------+-----------+-------+
+* Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
+
+
+4. DSP
+------
+
++-----------+------+-------+------------+-----------+-------+
+| Site Type | Used | Fixed | Prohibited | Available | Util% |
++-----------+------+-------+------------+-----------+-------+
+| DSPs      |    0 |     0 |          0 |       220 |  0.00 |
++-----------+------+-------+------------+-----------+-------+
+
+
+5. IO and GT Specific
+---------------------
+
++-----------------------------+------+-------+------------+-----------+-------+
+|          Site Type          | Used | Fixed | Prohibited | Available | Util% |
++-----------------------------+------+-------+------------+-----------+-------+
+| Bonded IOB                  |   35 |    35 |          0 |       200 | 17.50 |
+|   IOB Master Pads           |   17 |       |            |           |       |
+|   IOB Slave Pads            |   15 |       |            |           |       |
+| Bonded IPADs                |    0 |     0 |          0 |         2 |  0.00 |
+| Bonded IOPADs               |    0 |     0 |          0 |       130 |  0.00 |
+| PHY_CONTROL                 |    0 |     0 |          0 |         4 |  0.00 |
+| PHASER_REF                  |    0 |     0 |          0 |         4 |  0.00 |
+| OUT_FIFO                    |    0 |     0 |          0 |        16 |  0.00 |
+| IN_FIFO                     |    0 |     0 |          0 |        16 |  0.00 |
+| IDELAYCTRL                  |    0 |     0 |          0 |         4 |  0.00 |
+| IBUFDS                      |    0 |     0 |          0 |       192 |  0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        16 |  0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |          0 |        16 |  0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |          0 |       200 |  0.00 |
+| ILOGIC                      |    0 |     0 |          0 |       200 |  0.00 |
+| OLOGIC                      |    8 |     8 |          0 |       200 |  4.00 |
+|   OSERDES                   |    8 |     8 |          0 |       200 |       |
++-----------------------------+------+-------+------------+-----------+-------+
+
+
+6. Clocking
+-----------
+
++------------+------+-------+------------+-----------+-------+
+|  Site Type | Used | Fixed | Prohibited | Available | Util% |
++------------+------+-------+------------+-----------+-------+
+| BUFGCTRL   |    5 |     0 |          0 |        32 | 15.63 |
+| BUFIO      |    0 |     0 |          0 |        16 |  0.00 |
+| MMCME2_ADV |    1 |     0 |          0 |         4 | 25.00 |
+| PLLE2_ADV  |    0 |     0 |          0 |         4 |  0.00 |
+| BUFMRCE    |    0 |     0 |          0 |         8 |  0.00 |
+| BUFHCE     |    0 |     0 |          0 |        72 |  0.00 |
+| BUFR       |    0 |     0 |          0 |        16 |  0.00 |
++------------+------+-------+------------+-----------+-------+
+
+
+7. Specific Feature
+-------------------
+
++-------------+------+-------+------------+-----------+-------+
+|  Site Type  | Used | Fixed | Prohibited | Available | Util% |
++-------------+------+-------+------------+-----------+-------+
+| BSCANE2     |    0 |     0 |          0 |         4 |  0.00 |
+| CAPTUREE2   |    0 |     0 |          0 |         1 |  0.00 |
+| DNA_PORT    |    0 |     0 |          0 |         1 |  0.00 |
+| EFUSE_USR   |    0 |     0 |          0 |         1 |  0.00 |
+| FRAME_ECCE2 |    0 |     0 |          0 |         1 |  0.00 |
+| ICAPE2      |    0 |     0 |          0 |         2 |  0.00 |
+| STARTUPE2   |    0 |     0 |          0 |         1 |  0.00 |
+| XADC        |    0 |     0 |          0 |         1 |  0.00 |
++-------------+------+-------+------------+-----------+-------+
+
+
+8. Primitives
+-------------
+
++------------+------+---------------------+
+|  Ref Name  | Used | Functional Category |
++------------+------+---------------------+
+| LUT6       | 1311 |                 LUT |
+| LUT5       |  778 |                 LUT |
+| LUT3       |  347 |                 LUT |
+| LUT4       |  297 |                 LUT |
+| FDRE       |  263 |        Flop & Latch |
+| FDCE       |  244 |        Flop & Latch |
+| MUXF7      |  203 |               MuxFx |
+| LUT2       |   33 |                 LUT |
+| CARRY4     |   21 |          CarryLogic |
+| OBUF       |   17 |                  IO |
+| MUXF8      |   17 |               MuxFx |
+| FDPE       |   17 |        Flop & Latch |
+| LUT1       |   12 |                 LUT |
+| OSERDESE2  |    8 |                  IO |
+| IBUF       |    7 |                  IO |
+| FDSE       |    5 |        Flop & Latch |
+| BUFG       |    5 |               Clock |
+| OBUFDS     |    4 |                  IO |
+| OBUFT      |    3 |                  IO |
+| MMCME2_ADV |    1 |               Clock |
++------------+------+---------------------+
+
+
+9. Black Boxes
+--------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+10. Instantiated Netlists
+-------------------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
+| Date         : Fri Dec  8 16:32:23 2023
+| Host         : CEAT-ENDV350-03 running 64-bit major release  (build 9200)
+| Command      : report_timing -file route_report_timing_0.rpt -rpx route_report_timing_0.rpx
+| Design       : top_demo
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 btn[1]
+                            (input port)
+  Destination:            sseg_dp
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        18.702ns  (logic 5.303ns (28.353%)  route 13.399ns (71.647%))
+  Logic Levels:           3  (IBUF=1 LUT5=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    V12                                               0.000     0.000 f  btn[1] (IN)
+                         net (fo=0)                   0.000     0.000    btn[1]
+    V12                  IBUF (Prop_ibuf_I_O)         1.676     1.676 f  btn_IBUF[1]_inst/O
+                         net (fo=287, routed)        11.740    13.416    driver/btn_IBUF[1]
+    SLICE_X113Y77        LUT5 (Prop_lut5_I4_O)        0.124    13.540 r  driver/sseg_dp_OBUF_inst_i_1/O
+                         net (fo=1, routed)           1.659    15.199    sseg_dp_OBUF
+    K20                  OBUF (Prop_obuf_I_O)         3.503    18.702 r  sseg_dp_OBUF_inst/O
+                         net (fo=0)                   0.000    18.702    sseg_dp
+    K20                                                               r  sseg_dp (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
+| Date             : Fri Dec  8 16:32:24 2023
+| Host             : CEAT-ENDV350-03 running 64-bit major release  (build 9200)
+| Command          : report_power -file top_demo_power_routed_1.rpt -pb top_demo_power_summary_routed_1.pb -rpx top_demo_power_routed_1.rpx
+| Design           : top_demo
+| Device           : xc7z020clg484-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+----------------------------------+
+| Total On-Chip Power (W)  | 26.420 (Junction temp exceeded!) |
+| Design Power Budget (W)  | Unspecified*                     |
+| Power Budget Margin (W)  | NA                               |
+| Dynamic (W)              | 25.379                           |
+| Device Static (W)        | 1.041                            |
+| Effective TJA (C/W)      | 11.5                             |
+| Max Ambient (C)          | 0.0                              |
+| Junction Temperature (C) | 125.0                            |
+| Confidence Level         | Low                              |
+| Setting File             | ---                              |
+| Simulation Activity File | ---                              |
+| Design Nets Matched      | NA                               |
++--------------------------+----------------------------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Slice Logic    |     5.149 |     3583 |       --- |             --- |
+|   LUT as Logic |     4.952 |     2331 |     53200 |            4.38 |
+|   Register     |     0.089 |      529 |    106400 |            0.50 |
+|   F7/F8 Muxes  |     0.040 |      220 |     53200 |            0.41 |
+|   CARRY4       |     0.038 |       21 |     13300 |            0.16 |
+|   BUFG         |     0.029 |        5 |        32 |           15.63 |
+|   Others       |     0.000 |       30 |       --- |             --- |
+| Signals        |     4.719 |     2747 |       --- |             --- |
+| MMCM           |     3.367 |        1 |         4 |           25.00 |
+| I/O            |    12.144 |       35 |       200 |           17.50 |
+| Static Power   |     1.041 |          |           |                 |
+| Total          |    26.420 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint    |       1.000 |    10.696 |      10.398 |      0.299 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     2.472 |       2.372 |      0.100 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     3.247 |       3.246 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.026 |       0.000 |      0.026 |       NA    | Unspecified | NA         |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.473 |       0.000 |      0.473 |       NA    | Unspecified | NA         |
+| Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
+| Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
+| Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco_mio0 |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco_mio1 |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                           |                                                                                                                    |
+|                             |            |                                                        |                                                                                                                    |
+| Overall confidence level    | Low        |                                                        |                                                                                                                    |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+------------------------+
+| Ambient Temp (C)      | 25.0                   |
+| ThetaJA (C/W)         | 11.5                   |
+| Airflow (LFM)         | 250                    |
+| Heat Sink             | none                   |
+| ThetaSA (C/W)         | 0.0                    |
+| Board Selection       | medium (10"x10")       |
+| # of Board Layers     | 8to11 (8 to 11 Layers) |
+| Board Temperature (C) | 25.0                   |
++-----------------------+------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------+--------+-----------------+
+| Clock | Domain | Constraint (ns) |
++-------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++-----------------------------------------+-----------+
+| Name                                    | Power (W) |
++-----------------------------------------+-----------+
+| top_demo                                |    25.379 |
+|   c1                                    |     0.070 |
+|   dp                                    |     1.763 |
+|     flop                                |     1.678 |
+|   driver                                |     0.109 |
+|   test                                  |    13.623 |
+|     hdmi                                |     7.496 |
+|       serializer                        |     0.100 |
+|       tmds_gen[0].tmds_channel          |     0.123 |
+|       tmds_gen[1].tmds_channel          |     0.184 |
+|       tmds_gen[2].tmds_channel          |     0.109 |
+|       true_hdmi_output.packet_assembler |     0.251 |
+|       true_hdmi_output.packet_picker    |     0.760 |
+|     hdmi_pll                            |     3.420 |
++-----------------------------------------+-----------+
+
+

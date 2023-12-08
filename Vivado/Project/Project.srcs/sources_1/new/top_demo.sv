@@ -60,18 +60,22 @@ module top_demo
   
   clk_div c1(sysclk_125mhz, reset,  game_clk);
   
-  assign reset = sw[0];
+  
   assign clear = btn[0];
-  assign start = sw[1];
-  assign seed = 256'h0000_00e0_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
+  assign reset = btn[1];
+  assign start = btn[2];
+  assign pause = sw[0];
+  assign seed = 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
+  
+  logic [23:0] alive, dead;
   // Place Conway Game of Life instantiation here
   logic [15:0] w2_out;
-  dpgen dp(seed, reset, clear, game_clk, start, n2, led[3:0], w2_out, led[7]);
+  dpgen dp(seed, reset, clear, game_clk, start, pause, n2, led[3:0], w2_out, led[7]);
   // HDMI
   // logic hdmi_out_en;
   //assign hdmi_out_en = 1'b0;
   hdmi_top test (n2, sysclk_125mhz, hdmi_d_p, hdmi_d_n, hdmi_clk_p, 
-		         hdmi_clk_n, hdmi_cec, hdmi_sda, hdmi_scl, hdmi_hpd);
+		         hdmi_clk_n, hdmi_cec, hdmi_sda, hdmi_scl, hdmi_hpd, sw[7]);
   
   // 7-segment display
   segment_driver driver(

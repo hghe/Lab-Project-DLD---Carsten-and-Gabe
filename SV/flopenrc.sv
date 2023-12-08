@@ -38,13 +38,13 @@ module flopenrc #(parameter WIDTH = 256) (
       q <= 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
     end
     else if (en) begin
-      if (clear)begin 
+      if (clear)begin //xor state
         q <= 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000 ^ d;
       end
       else
-        q <= d;
+        q <= d; //iterative state
     end
-    else
+    else //pause state
       q <= seed;
 
 endmodule
