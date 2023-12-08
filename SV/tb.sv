@@ -11,7 +11,7 @@ module stimulus ();
    integer desc3;
    
    // Instantiate DUT
-   dpgen dut (gin, reset, clear, clk, start, gout);  
+   dpgen dut (.seed(gin), .reset(reset), .clear(clear), .clk(clk), .start(start), .gout(gout));  
    // Setup the clock to toggle every 1 time units 
    initial 
      begin	
@@ -30,20 +30,25 @@ module stimulus ();
 	#500 $finish;		
      end
 
-   always 
+   always @(negedge clk)
      begin
-	
-	  #5 $fdisplay(desc3, "%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n", 
+	    $fdisplay(desc3, "%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n", 
 		      gout[15:0], gout[31:16], gout[47:32], gout[63:48], gout[79:64], gout[95:80], gout[111:96], gout[127:112], gout[143:128], gout[159:144], gout[175:160], gout[191:176], gout[207:192], gout[223:208], gout[239:224], gout[255:240] );
      end    
    
    initial 
      begin      
      #0   reset = 1'b1;
-     #0   gin = 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
+     #0   start = 1'b0;
+     #0   gin = 256'h10d16780be47d13f2a47dbd048379d6963d31d7ab56b0c1d9763a49780b687e3751ec72170140510ceb6dae3a1d471225e51ee3bdf2a1f25d2f1e43a88069263b9f93aa1603f996dba79da46941be72ef351d0f8a05ec1e55b90791df9df77c19033797167a54978d1172b0ac21c65f039a52fefc156f8cee50fc9555f03df31;
+     #0   clear = 1'b0;
               //256'h0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0015_e000_0000_0000;
-     #20  reset = 1'b0;
-     #0    start = 1'b1;
+     #50  reset = 1'b0;
+     #50  start = 1'b1;
+     #50  start = 1'b0;
+     #50  reset = 1'b1;
+     #0   start = 1'b1;
+     #50  clear = 1'b1;
     
      end
 

@@ -1,24 +1,3 @@
-# do dpgen.do
-# Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 14:46:18 on Dec 07,2023
-# vlog dpgen.sv datapath2.sv tb.sv flopenrc.sv 
-# -- Compiling module dpgen
-# -- Compiling module datapath
-# -- Compiling module evolve3
-# -- Compiling module evolve5
-# -- Compiling module evolve8
-# -- Compiling module rules
-# -- Compiling module stimulus
-# -- Compiling module flopenrc
-# 
-# Top level modules:
-# 	stimulus
-# End time: 14:46:18 on Dec 07,2023, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs="+acc" work.stimulus 
-# Start time: 14:46:19 on Dec 07,2023
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Note: (vopt-143) Recognized 1 FSM in module "dpgen(fast)".
 # //  ModelSim SE-64 2021.3 Jul 13 2021
 # //
 # //  Copyright 1991-2021 Mentor Graphics Corporation
@@ -32,6 +11,33 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+# do dpgen.do
+# Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 18:22:04 on Dec 07,2023
+# vlog -reportprogress 300 dpgen.sv datapath2.sv tb.sv flopenrc.sv 
+# -- Compiling module dpgen
+# -- Compiling module datapath
+# -- Compiling module evolve3
+# -- Compiling module evolve5
+# -- Compiling module evolve8
+# -- Compiling module rules
+# -- Compiling module stimulus
+# ** Warning: tb.sv(43): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# -- Compiling module flopenrc
+# 
+# Top level modules:
+# 	stimulus
+# End time: 18:22:04 on Dec 07,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vsim -voptargs="+acc" work.stimulus 
+# Start time: 18:22:04 on Dec 07,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: tb.sv(14): (vopt-2685) [TFMPC] - Too few port connections for 'dut'.  Expected 9, found 6.
+# ** Warning: tb.sv(14): (vopt-2718) [TFMPC] - Missing connection for port 'en'.
+# ** Warning: tb.sv(14): (vopt-2718) [TFMPC] - Missing connection for port 'w_out'.
+# ** Warning: tb.sv(14): (vopt-2718) [TFMPC] - Missing connection for port 'next'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "dpgen(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=4.
 # Loading sv_std.std
 # Loading work.stimulus(fast)
 # Loading work.dpgen(fast)
@@ -41,16 +47,11 @@
 # Loading work.rules(fast)
 # Loading work.evolve5(fast)
 # Loading work.evolve8(fast)
-# .list
-# configure wave not supported in batch mode
-# configure wave not supported in batch mode
-# configure wave not supported in batch mode
-# configure wave not supported in batch mode
-# configure wave not supported in batch mode
-# configure wave not supported in batch mode
-# configure wave not supported in batch mode
-# configure wave not supported in batch mode
+# .main_pane.list.interior.cs.body
+# .main_pane.wave.interior.cs.body.pw.wf
 # ** Note: $finish    : tb.sv(30)
 #    Time: 500 ns  Iteration: 0  Instance: /stimulus
-# End time: 14:46:20 on Dec 07,2023, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
+# 1
+# Break in Module stimulus at tb.sv line 30
+# End time: 18:23:24 on Dec 07,2023, Elapsed time: 0:01:20
+# Errors: 0, Warnings: 4

@@ -12,28 +12,32 @@
 //
 // SPDX-License-Identifier: Apache-2.0 WITH SHL-2.1
 //
-// Licensed under the Solderpad Hardware License v 2.1 (the “License”); you may not use this file 
+// Licensed under the Solderpad Hardware License v 2.1 (the “License�?); you may not use this file 
 // except in compliance with the License, or, at your option, the Apache License version 2.0. You 
 // may obtain a copy of the License at
 //
 // https://solderpad.org/licenses/SHL-2.1/
 //
 // Unless required by applicable law or agreed to in writing, any work distributed under the 
-// License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
+// License is distributed on an “AS IS�? BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
 // either express or implied. See the License for the specific language governing permissions 
 // and limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////////////////////
 `timescale 1ns / 1ps
 module flopenrc #(parameter WIDTH = 256) (
   input  logic             clk, reset, clear, en,
+  input  logic [WIDTH-1:0] seed,
   input  logic [WIDTH-1:0] d, 
   output logic [WIDTH-1:0] q);
 
-  always_ff @(posedge clk) 
-    if (reset)   q <= #1 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
+  always_ff @(posedge clk/*, en, posedge reset*/) 
+    if (reset)begin   
+      q <= seed;
+    end
     else if (en) 
-      if (clear) q <= #1 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000 ^ d;
+      if (clear) q <= 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000 ^ d;
       //256'h0412_6424_0034_3C28_0412_6424_0034_3C28_0412_6424_0034_3C28_0412_6424_0034_3C28 ^ d;
-      else       q <= #1 d;
+    else       q <= d;
+    
 endmodule
 

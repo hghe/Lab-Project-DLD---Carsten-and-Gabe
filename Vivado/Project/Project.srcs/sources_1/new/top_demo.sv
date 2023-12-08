@@ -61,11 +61,12 @@ module top_demo
   clk_div c1(sysclk_125mhz, reset,  game_clk);
   
   assign reset = sw[0];
-  assign clear = sw[1];
-  assign start = sw[2];
-  assign seed = 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
+  assign clear = btn[0];
+  assign start = sw[1];
+  assign seed = 256'h0000_00e0_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
   // Place Conway Game of Life instantiation here
-  dpgen dp(seed, reset, clear, game_clk, start, n2);
+  logic [15:0] w2_out;
+  dpgen dp(seed, reset, clear, game_clk, start, n2, led[3:0], w2_out, led[7]);
   // HDMI
   // logic hdmi_out_en;
   //assign hdmi_out_en = 1'b0;
@@ -76,10 +77,10 @@ module top_demo
   segment_driver driver(
   .clk(smol_clk),
   .rst(btn[3]),
-  .digit0(sw[3:0]),
-  .digit1(4'b0111),
-  .digit2(sw[7:4]),
-  .digit3(4'b1111),
+  .digit0(w2_out[3:0]),
+  .digit1(w2_out[7:4]),
+  .digit2(w2_out[11:8]),
+  .digit3(w2_out[15:12]),
   .decimals({1'b0, btn[2:0]}),
   .segment_cathodes({sseg_dp, sseg_cg, sseg_cf, sseg_ce, sseg_cd, sseg_cc, sseg_cb, sseg_ca}),
   .digit_anodes(sseg_an)
