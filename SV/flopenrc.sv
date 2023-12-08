@@ -23,21 +23,30 @@
 // either express or implied. See the License for the specific language governing permissions 
 // and limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////////////////////
-`timescale 1ns / 1ps
-module flopenrc #(parameter WIDTH = 256) (
-  input  logic             clk, reset, clear, en,
-  input  logic [WIDTH-1:0] seed,
-  input  logic [WIDTH-1:0] d, 
-  output logic [WIDTH-1:0] q);
 
-  always_ff @(posedge clk/*, en, posedge reset*/) 
-    if (reset)begin   
-      q <= seed;
+`timescale 1ns / 1ps
+
+module flopenrc #(parameter WIDTH = 256) (
+  input logic clk, reset, clear, en,
+  input logic [WIDTH-1:0] seed,
+  input logic [WIDTH-1:0] d,
+  output logic [WIDTH-1:0] q
+);
+
+  always_ff @(posedge clk, posedge reset)
+    if (reset) begin
+      q <= 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
     end
-    else if (en) 
-      if (clear) q <= 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000 ^ d;
-      //256'h0412_6424_0034_3C28_0412_6424_0034_3C28_0412_6424_0034_3C28_0412_6424_0034_3C28 ^ d;
-    else       q <= d;
-    
+    else if (en) begin
+      if (clear)begin 
+        q <= 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000 ^ d;
+      end
+      else
+        q <= d;
+    end
+    else
+      q <= seed;
+
 endmodule
+
 
