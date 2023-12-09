@@ -4,7 +4,7 @@
 // Written: David_Harris@hmc.edu 9 January 2021
 // Modified: 
 //
-// Purpose: D flip-flop with enable, synchronous reset, enabled clear
+// Purpose: D flip-flop with enable, synchronous reset, enabled stir
 // 
 // A component of the CORE-V-WALLY configurable RISC-V project.
 // 
@@ -27,7 +27,7 @@
 `timescale 1ns / 1ps
 
 module flopenrc #(parameter WIDTH = 256) (
-  input logic clk, reset, clear, en,
+  input logic clk, reset, stir, en,
   input logic [WIDTH-1:0] seed,
   input logic [WIDTH-1:0] d,
   output logic [WIDTH-1:0] q
@@ -38,7 +38,7 @@ module flopenrc #(parameter WIDTH = 256) (
       q <= 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
     end
     else if (en) begin
-      if (clear)begin //xor state
+      if (stir)begin //xor state
         q <= 256'hFFFF_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000 ^ d;
       end
       else
